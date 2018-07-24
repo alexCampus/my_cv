@@ -6,7 +6,7 @@
       enter-active-class="animated zoomInLeft"
       leave-active-class="animated zoomOutLeft"
     >
-      <Content :clickFromNav="dataFromNav" v-if="contentIsVisible"></Content>
+      <Content :clickFromNav="dataFromNav" v-show="contentIsVisible"></Content>
     </transition>
   </div>
 </template>
@@ -31,11 +31,11 @@ export default {
   methods: {
     onClickChild: function (value) {
       if (value !== 'home') {
-        // document.getElementById('app').style.width = '65%'
         this.contentIsVisible = true
+        document.getElementById('app').style.marginLeft = '0%'
       } else {
         this.contentIsVisible = false
-        // document.getElementById('app').style.width = '45%'
+        document.getElementById('app').style.marginLeft = '15%'
       }
       this.dataFromNav = value
     }
@@ -47,7 +47,7 @@ export default {
   @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
   body {
     font-family: 'Montserrat', sans-serif;
-    background-image: url("./assets/back.jpg");
+    background-image: url("assets/back.jpg");
     display: flex;
     justify-content: center;
 
@@ -59,8 +59,10 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 15%;
-  max-width: 100%;
-  width: 65%;
+  margin-left: 15%;
+  max-width: 65%;
+  max-height: 580px;
+  /*width: 100%;*/
   display:inline-flex;
 }
 </style>

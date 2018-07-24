@@ -1,9 +1,29 @@
 <template>
     <div class="content">
-      <Resume v-if="clickFromNav === 'resume'"></Resume>
-      <Skills v-if="clickFromNav === 'skills'"></Skills>
-      <Portfolio v-if="clickFromNav === 'portfolio'"></Portfolio>
-      <Contact v-if="clickFromNav === 'contact'"></Contact>
+      <transition
+        enter-active-class="animated fadeInLeft"
+
+      >
+        <Resume v-if="clickFromNav === 'resume'" @redirect="redirectFromResume"></Resume>
+      </transition>
+      <transition
+        enter-active-class="animated fadeInLeft"
+
+      >
+        <Skills v-if="clickFromNav === 'skills'"></Skills>
+      </transition>
+      <transition
+        enter-active-class="animated fadeInLeft"
+
+      >
+        <Portfolio v-if="clickFromNav === 'portfolio'"></Portfolio>
+      </transition>
+      <transition
+        enter-active-class="animated fadeInLeft"
+
+      >
+        <Contact v-if="clickFromNav === 'contact'"></Contact>
+      </transition>
     </div>
 </template>
 
@@ -15,68 +35,28 @@
     import Contact from './Content/Contact'
     export default {
   name: 'Content',
-      props: ['clickFromNav', 'isVisible'],
-      components: {Contact, Skills, Portfolio, Resume, profilImage}
+      props: ['clickFromNav'],
+      components: {Contact, Skills, Portfolio, Resume, profilImage},
+      data () {
+        return {
+          isVisible: false
+        }
+      },
+      methods: {
+        redirectFromResume: function (value) {
+          this.clickFromNav = (value === 'contact') ? 'contact' : this.clickFromNav
+        }
+      }
     }
 </script>
 
 <style scoped>
-  .backgroundColor {
-    background-color: #08aeac;
-    color:#fff;
+  .content {
+    margin-left: 1%;
+    width: 45%;
+    min-width: 45%;
+    background-color: #f0f0f0;
+    overflow-y: scroll;
+    max-height: 580px;
   }
-  .backgroundColor a {
-    color:#fff;
-  }
-  .backgroundColor a:hover {
-    color: #084f4d;
-  }
-  .color {
-    color: #08aeac;
-  }
-  .bold {
-    font-weight:bold;
-    letter-spacing: -3px;
-  }
-  .semiBold {
-    font-weight:400;
-  }
-.content {
-  margin-left: 1%;
-  width: 65%;
-  background-color: #f0f0f0;
-}
-.socialIcons {
-  margin-top: 3%;
-  margin-bottom: 5%;
-}
-
-.socialIcons a:hover {
-  background-color: #08aeac;
-}
-
-hr {
-  height: 30px;
-  border-style: solid;
-  border-color: #8c8b8b;
-  border-width: 1px 0 0 0;
-  border-radius: 20px;
-  max-width: 90%;
-  opacity: 0.4;
-}
-hr:before {
-  display: block;
-  content: "";
-  height: 30px;
-  margin-top: -31px;
-  border-style: solid;
-  border-color: #8c8b8b;
-  border-width: 0 0 1px 0;
-  border-radius: 20px;
-}
-  .alert {
-    width: 85%;
-    margin: auto;
-  }
-
 </style>

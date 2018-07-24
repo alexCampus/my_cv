@@ -1,5 +1,5 @@
 <template>
-    <div class="home">
+    <div id="home">
       <profilImage></profilImage>
       <h1 class="bold">Hi, i'm <br><span class="color">Alexandre De Pembroke</span></h1>
       <h5 class="semiBold">Fullstack Web Developer</h5>
@@ -43,38 +43,40 @@
   .semiBold {
     font-weight:400;
   }
-.home {
-  /*width: 65%;*/
-  background-color: #f0f0f0;
-}
-.socialIcons {
-  margin-top: 3%;
-  margin-bottom: 5%;
-}
+  #home {
+    width: 45%;
+    min-width: 45%;
+    background-color: #f0f0f0;
+    max-height: 580px;
+  }
+  .socialIcons {
+    margin-top: 3%;
+    margin-bottom: 5%;
+  }
 
-.socialIcons a:hover {
-  background-color: #08aeac;
-}
+  .socialIcons a:hover {
+    background-color: #08aeac;
+  }
 
-hr {
-  height: 30px;
-  border-style: solid;
-  border-color: #8c8b8b;
-  border-width: 1px 0 0 0;
-  border-radius: 20px;
-  max-width: 90%;
-  opacity: 0.4;
-}
-hr:before {
-  display: block;
-  content: "";
-  height: 30px;
-  margin-top: -31px;
-  border-style: solid;
-  border-color: #8c8b8b;
-  border-width: 0 0 1px 0;
-  border-radius: 20px;
-}
+  hr {
+    height: 30px;
+    border-style: solid;
+    border-color: #8c8b8b;
+    border-width: 1px 0 0 0;
+    border-radius: 20px;
+    max-width: 90%;
+    opacity: 0.4;
+  }
+  hr:before {
+    display: block;
+    content: "";
+    height: 30px;
+    margin-top: -31px;
+    border-style: solid;
+    border-color: #8c8b8b;
+    border-width: 0 0 1px 0;
+    border-radius: 20px;
+  }
   .alert {
     width: 85%;
     margin: auto;

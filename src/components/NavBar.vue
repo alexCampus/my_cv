@@ -49,9 +49,11 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
   .navBar {
-    width: 35%;
+    width: 19%;
+    min-width: 19%;
   }
  .bgColor {
+   border:none;
     background-color: #08aeac;
    -webkit-transition: ease-out 0.5s;
    -moz-transition: ease-out 0.5s;
